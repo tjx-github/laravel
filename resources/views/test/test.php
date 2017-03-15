@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel啊 5</div>
+                <div class="title">!!!!!!!!!!</div>
             </div>
         </div>
     </body>
