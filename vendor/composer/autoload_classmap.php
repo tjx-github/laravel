@@ -2158,6 +2158,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'Spatie\\Pjax\\Middleware\\FilterIfPjax' => $vendorDir . '/spatie/laravel-pjax/src/Middleware/FilterIfPjax.php',
     'SuperClosure\\Analyzer\\AstAnalyzer' => $vendorDir . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',
     'SuperClosure\\Analyzer\\ClosureAnalyzer' => $vendorDir . '/jeremeamia/SuperClosure/src/Analyzer/ClosureAnalyzer.php',
     'SuperClosure\\Analyzer\\Token' => $vendorDir . '/jeremeamia/SuperClosure/src/Analyzer/Token.php',
