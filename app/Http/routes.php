@@ -10,10 +10,27 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+//路由关联controller
+        Route::get("blibli/{id}",["uses"=> "OndirController@contest"])->where("id","^[^a-z][0-9a-z]{2,5}") ; #http://laravel.xuexi.com/blibli/4sdds
+
+        Route::get("haha/{id}", "Test/ConController@contest");
+        Route::get("bailei", "OndirController@my");
+        #模型
+        Route::get("orm_insert", "OndirController@orm_insert");
+        Route::get("orm_update", "OndirController@orm_update");
+        Route::get("orm_select", "OndirController@orm_select");
+        Route::get("mail", "OndirController@pmail");
+        Route::get("view", "OndirController@viewextends");
+        Route::get("echourl",["uses"=>"OndirController@echourl"]);
+        Route::get("cache",["uses"=>"OndirController@test_chache"]);
+        Route::get("duilie",["uses"=>"OndirController@DueiLie"]);
+        Route::get("pagelist",["uses"=>"OndirController@pagelist"]);
+
+
 #路由群主
 //Route::group();
-//路由关联controller
-Route::get("", "ConController@contest");
+
 #基础路由
         Route::get("tan",function(){
             return view("test/test");
@@ -54,6 +71,9 @@ Route::get("", "ConController@contest");
         })->where('name',"^a[a-z]{2,4}"); #此处必须相同
 
 
+        
+        
+#        
 Route::get('/', function () {
     return view('welcome');
 });
@@ -71,4 +91,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

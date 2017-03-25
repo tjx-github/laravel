@@ -5,5 +5,8 @@ class ConController extends Controller{
     public function contest(){
         return "controller";
     }
+    public function dmodel(){
+        
+    }
 }
 
