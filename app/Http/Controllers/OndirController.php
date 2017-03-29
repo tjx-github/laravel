@@ -27,6 +27,7 @@ class OndirController extends Controller{
             "db_table"=>Fa\DB::table("ta")->where(['host'=>"localhost","user"=>"tjx"]) ->limit(1)
         ]);
     }
+    
     public function my(){
         Fa\DB::table("ta")
             ->select("namex")  //select与tp中有别，这个是选择要取出列
