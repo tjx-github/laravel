@@ -14,14 +14,14 @@
 //路由关联controller
         Route::get("blibli/{id}",["uses"=> "OndirController@contest"])->where("id","^[^a-z][0-9a-z]{2,5}") ; #http://laravel.xuexi.com/blibli/4sdds
 
-        Route::get("haha/{id}", "Test/ConController@contest");
+        Route::get("haha/{id}", ["uses" =>"Test/ConController@contest"]);
         Route::get("bailei", "OndirController@my");
         #模型
         Route::get("orm_insert", "OndirController@orm_insert");
         Route::get("orm_update", "OndirController@orm_update");
         Route::get("orm_select", "OndirController@orm_select");
         Route::get("mail", "OndirController@pmail");
-        Route::get("view", "OndirController@viewextends");
+        Route::get("view", ["uses"=>"OndirController@viewextends"]);
         Route::get("echourl",["uses"=>"OndirController@echourl"]);
         Route::get("cache",["uses"=>"OndirController@test_chache"]);
         Route::get("duilie",["uses"=>"OndirController@DueiLie"]);
@@ -32,8 +32,9 @@
 //Route::group();
 
 #基础路由
-        Route::get("tan",function(){
-            return view("test/test");
+        Route::get("phpinfo",function(){
+            phpinfo();
+//            return view("test/test");
           
         });
         #http://laravel.xuexi.com/post

@@ -61,14 +61,13 @@ class OndirController extends Controller{
         var_dump($b);
     }
     public function orm_select(){
-       
-            
+
         $data=Fa\DB::table("org_table_name")
                 ->select(['id',"md5","name as mc"])
                 ->paginate(2);
 //                ->get();
-        
-        return view("ondir/orm_select",$data);
+        var_dump($data);
+//        return view("ondir/orm_select",$data);
 
     }
     public function orm_delete(){
