@@ -44,8 +44,9 @@ class OndirController extends Controller{
         
     }
     public function orm_insert(){
+        
         $moxing=new MX;
-        $moxing ->name="asddssd";
+//        $moxing ->name="asddssd";
         $moxing ->md5=md5("qsaf");
         $moxing ->x=  "sddss";
         var_dump($moxing->save());
@@ -92,10 +93,11 @@ class OndirController extends Controller{
         var_dump($b);
     }
     public function test_chache(){
-        echo $b;
+
         Fa\Cache::put("keadfay","valuase",1);
+
 //        var_dump(Fa\Cache::add("key","asdfas",20 ));
-        echo Fa\Cache::get("key");
+        echo Fa\Cache::get("keadfay");
 //        Fa\Cache::pull("key");
     }
     public function pagelist(){
