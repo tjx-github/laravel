@@ -94,8 +94,8 @@ class OndirController extends Controller{
     }
     public function test_chache(){
 
-        Fa\Cache::put("keadfay","valuase",1);
-
+       $b= Fa\Cache::put("keadfay","valuase",1);
+       var_dump($b);
 //        var_dump(Fa\Cache::add("key","asdfas",20 ));
         echo Fa\Cache::get("keadfay");
 //        Fa\Cache::pull("key");

@@ -11,6 +11,16 @@
 |
 */
 
+#空间命名
+Route::group(['namespace' => 'Shejimoshi'], function () {
+//    Route::any("y","IndexController@y");
+        $fun=get_class_methods(\App\Http\Controllers\Shejimoshi\IndexController::class);
+        array_shift($fun);
+        foreach($fun as $value){
+             Route::get($value, "IndexController@{$value}");
+        }
+});
+
 //路由关联controller
         Route::get("blibli/{id}",["uses"=> "OndirController@contest"])->where("id","^[^a-z][0-9a-z]{2,5}") ; #http://laravel.xuexi.com/blibli/4sdds
 
@@ -34,8 +44,9 @@
 #基础路由
         Route::get("phpinfo",function(){
             phpinfo();
-//            return view("test/test");
-          
+        });
+        Route::get("server",function(){
+            print_r($_SERVER);
         });
         #http://laravel.xuexi.com/post
         Route::post("post",function(){
@@ -53,7 +64,7 @@
         Route::any('any',function(){
             return "多请求路由，无限制 ";
         });
-
+        
 #路由多参数 http://laravel.xuexi.com/can/第一个参数/第二个参数
         Route::get('can/{id}/{aa}',function($id,$aa){
             return "返回参数{$id}......{$aa}";
@@ -90,9 +101,7 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
