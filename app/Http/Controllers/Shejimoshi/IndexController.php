@@ -4,22 +4,15 @@ namespace App\Http\Controllers\Shejimoshi;
 
 use App\Http\Controllers\Controller;
 class IndexController extends Controller
-
 {
-    public function __construct() {
-        $fun=get_class_methods(\App\Http\Controllers\Shejimoshi\IndexController::class);
-        array_shift($fun);
-        echo "<center>";
-        foreach($fun as $value){
-//             Route::get($value, "IndexController@{$value}");
-            echo "<a href='".  url($value) ."'>{$value}</a><br />\n";
-        }
-        echo "</center><hr />\n";
-    }
-    public function y(){
-        session_start();
-        $_SESSION['sdds']='asdasd';
-        echo md5(date("Y-m-d H:i:s"));
+    public static $name=[
+        "zhucheshu"=>"注册树模式",
+        "shipeiqi"=>"适配器模式",
+        "gongchang"=>"工厂模式",
+        "guanchazhe"=>"观察者模式",
+    ];
+    public function index(){
+        echo "<a href='".  url("?show") ."'>show</a><br />\n";
     }
     //注册树
     public function zhucheshu(){

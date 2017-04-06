@@ -13,13 +13,19 @@
 
 #空间命名
 Route::group(['namespace' => 'Shejimoshi'], function () {
-//    Route::any("y","IndexController@y");
-        $fun=get_class_methods(\App\Http\Controllers\Shejimoshi\IndexController::class);
-        array_shift($fun);
-        foreach($fun as $value){
-             Route::get($value, "IndexController@{$value}");
+        Route::get("/", "IndexController@index");
+        if(isset($_GET['show'])){
+            $class=\App\Http\Controllers\Shejimoshi\IndexController::class;
+                echo "<center>";
+                    foreach(get_class_methods($class) as $value){
+                        if(array_key_exists($value, $class::$name)){
+                            Route::get($value, "IndexController@{$value}");
+                                echo "<a href='".  url("{$value}?show") ."'>{$class::$name[$value]}</a><br />\n";
+                        }
+                    }
+                echo "</center><hr>";
         }
-});
+});     
 
 //路由关联controller
         Route::get("blibli/{id}",["uses"=> "OndirController@contest"])->where("id","^[^a-z][0-9a-z]{2,5}") ; #http://laravel.xuexi.com/blibli/4sdds
@@ -84,11 +90,7 @@ Route::group(['namespace' => 'Shejimoshi'], function () {
 
 
         
-        
-#        
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
