@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Shejimoshi'], function () {
                             Route::get($value, "IndexController@{$value}");
                                 echo "<a href='".  url("{$value}?show") ."'>{$class::$name[$value]}</a><br />\n";
                         }
-                    }
+                    } 
                 echo "</center><hr>";
         }
 });     
